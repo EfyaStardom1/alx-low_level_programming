@@ -76,7 +76,7 @@ void print_class(unsigned char *e_ident)
 	case ELFCLASSNONE:
 		printf("none\n");
 		break;
-case ELFCLASS32:
+	case ELFCLASS32:
 		printf("ELF32\n");
 		break;
 	case ELFCLASS64:
@@ -185,6 +185,7 @@ void print_abi(unsigned char *e_ident)
 	printf(" ABI Version: %d\n",
 		e_ident[EI_ABIVERSION]);
 }
+
 /**
  * print_type - Prints the type of an ELF header.
  * @e_type: The ELF type.
@@ -234,7 +235,6 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 			  ((e_entry >> 8) & 0xFF00FF);
 		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
-
 	if (e_ident[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)e_entry);
 
@@ -267,7 +267,7 @@ void close_elf(int elf)
  * Return: 0 on success.
  *
  * Description: If the file is not an ELF File or
- * the function fails - exit code 98
+ * the function fails - exit code 98.
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
